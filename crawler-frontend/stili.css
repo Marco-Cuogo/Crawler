@@ -1,0 +1,64 @@
+body{
+    background-color:#d9d9d9;
+    background-size:auto ;
+}
+
+h1{font-family:verdana; color:#595959;}
+h3{font-family:courier; color:#808080;}
+h4{font-family:courier; color:#ff0000;}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 5px; 
+}
+
+table#myTable tr:nth-child(even) {
+    background-color: #eee;
+}
+
+table#myTable tr:nth-child(odd) {
+    background-color:#fff;
+}
+
+table#myTable th {
+    background-color: #404040;
+    color: white;
+}
+
+.search-bar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 50px;
+}
+
+.search-input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons-container {
+    margin-left: 5px;
+    margin-top: 2px;
+}
+
+.error-message {
+    color: red;
+    font-family: courier;
+    text-align: left;
+}
+
+.search-input {
+    width: 350px;
+    height:25px;
+    padding: 5px;
+}
+
+.error {
+    border:1px solid #FF0000;
+}
+
