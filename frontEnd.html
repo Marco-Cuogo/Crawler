@@ -1,0 +1,42 @@
+<!DOC TYPE HTML>
+
+<html>
+    <head>
+        <title>Crawler</title>
+        <link rel="stylesheet" type="text/css" href="stili.css" media="screen">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="java.js"></script>
+    </head>
+    <body>
+        <h1 align="center">Pagina per la visualizzazione dei risultati di un web crawler</h1>
+        <h3 align="center">(Inserire nella barra di ricerca la parola da cercare per il crawler)</h3>
+        
+        <div class="search-bar-container">
+            <div class="search-input-container">
+                <input id="input" class="search-input" type="text" value="" placeholder="Query di ricerca per il crawler" maxlength="100" >
+                <small id="controllo" class="error-message" style="display:none;" >Non hai inserito nessun valore</small>
+            </div>
+            <div class="buttons-container">
+                <input id="bottone" type="button" value="Search" onclick="search();"  />
+                <input id="bottone1" type="button" value="Reload" onclick="reload();"  />
+            </div>
+        </div>
+        <div>
+            <table id="myTable" width = 100%>
+                <thead>
+                    <tr>
+                        <th><b>N° link </b></th>
+                        <th><b>Url</b></th>
+                        <th><b>Contenuto</b></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+        <hr>
+            <h3><i>Cuogo Marco, Mantini Christian</i></h3>
+        </hr>
+    </body>
+</html>
