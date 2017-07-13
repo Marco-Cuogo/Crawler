@@ -1,9 +1,8 @@
 var is = false;
-insert = function (dat){
-    var data="aaa aaaa aaaaaaa af afff afaf aagg agga agga aggga faff\nfahbfabh gahbgabh aghgabhj agbhga hbbh bhbh bhbh bhbh bhbh bhhb aafafa\n";
+insert = function (data){
     if(is){
         reload();
-        var c = [];
+        /*var c = [];
         for(var z=0; z<10; z++) {
             c[z] = new Array(11);
         }
@@ -23,15 +22,15 @@ insert = function (dat){
                 }else{
                     temp += data.charAt(j);
                 }
-            }
-        for(var i = 0; i < index0; i++) {
+            }*/
+        for(var i = 0; i < data.length; i++) {
             var key="";
-            for(var k = 0; k <10; k++){
-                    key+=(k+1)+")"+c[i][k]+"; ";
+            for(var k = 0; k <data[i].worlds.length; k++){
+                    key+=(k+1)+")"+data[i].worlds[k]+"; ";
             }
             if(i<10){
-                tmp = "<a href= "+ c[i][10]+ "&quot>";
-                $('#myTable tbody').append('<tr><td><b>'+(i+1)+'</b></td><td>'+tmp+c[i][10]+'</a></td><td>'+key+'</td></tr>');
+                tmp = "<a href= "+data[i].url+ "&quot>";
+                $('#myTable tbody').append('<tr><td><b>'+(i+1)+'</b></td><td>'+tmp+data[i].url+'</a></td><td>'+key+'</td></tr>');
                 tmp="";
             }
         }
@@ -44,8 +43,7 @@ insert = function (dat){
 reload = function () {
     $('#myTable tbody tr').remove();
 };
-search = function(){
-    //upload();
+search = function(){    
     //send();
     $.ajax('http://jsonplaceholder.typicode.com/photos', {
         method: 'GET'
@@ -56,22 +54,10 @@ search = function(){
 send = function (){
     var temp1=document.getElementById('input').value;
     $.ajax({
-      //imposto il tipo di invio dati (GET O POST)
-      type: "POST",
-      //Dove devo inviare i dati recuperati dal form?
-      url: "risultato_aggiunta.php",
-      //Quali dati devo inviare?
-      data: temp1,
-      dataType: "html",
-      //Inizio visualizzazione errori
-      success: function(msg)
-      {
-        $("#risultato").html(msg); // messaggio di avvenuta aggiunta valori al db (preso dal file risultato_aggiunta.php) potete impostare anche un alert("Aggiunto, grazie!");
-      },
-      error: function()
-      {
-        alert("Chiamata fallita, si prega di riprovare..."); //sempre meglio impostare una callback in caso di fallimento
-      }
+        type: "POST",
+        url: "risultato_aggiunta.php",
+        data: temp1,
+        dataType: "html",
     });
 };
 $(function() {
