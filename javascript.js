@@ -2,27 +2,6 @@ var is = false;
 insert = function (data){
     if(is){
         reload();
-        /*var c = [];
-        for(var z=0; z<10; z++) {
-            c[z] = new Array(11);
-        }
-        var temp="";
-        var index = 0;
-        var index0 = 0;
-            for(var j = 0; j < data.length; j++){
-                if(data.charAt(j) == " "){
-                    c[index0][index] = temp;
-                    temp = "";
-                    index++;
-                } else if(data.charAt(j) == "\n"){
-                    c[index0][index] = temp;
-                    temp = "";
-                    index = 0;
-                    index0++;
-                }else{
-                    temp += data.charAt(j);
-                }
-            }*/
         for(var i = 0; i < data.length; i++) {
             var key="";
             for(var k = 0; k <data[i].worlds.length; k++){
@@ -43,21 +22,11 @@ insert = function (data){
 reload = function () {
     $('#myTable tbody tr').remove();
 };
-search = function(){    
-    //send();
+search = function(){
     $.ajax('http://jsonplaceholder.typicode.com/photos', {
         method: 'GET'
     }).then(function(data) {
         insert(data);
-    });
-};
-send = function (){
-    var temp1=document.getElementById('input').value;
-    $.ajax({
-        type: "POST",
-        url: "risultato_aggiunta.php",
-        data: temp1,
-        dataType: "html",
     });
 };
 $(function() {
