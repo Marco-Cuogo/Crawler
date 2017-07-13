@@ -1,9 +1,13 @@
 var is = false;
-insert = function (data){
+insert = function (dat){
+    var data="aaa aaaa aaaaaaa af afff afaf aagg agga agga aggga faff\nfahbfabh gahbgabh aghgabhj agbhga hbbh bhbh bhbh bhbh bhbh bhhb aafafa\n";
     if(is){
         reload();
-        var c;
-        var temp;
+        var c = [];
+        for(var z=0; z<10; z++) {
+            c[z] = new Array(11);
+        }
+        var temp="";
         var index = 0;
         var index0 = 0;
             for(var j = 0; j < data.length; j++){
@@ -17,17 +21,17 @@ insert = function (data){
                     index = 0;
                     index0++;
                 }else{
-                    temp += data.charAt[j];
+                    temp += data.charAt(j);
                 }
             }
         for(var i = 0; i < index0; i++) {
             var key="";
-            for(var k = 0; k < c[i].length; k++){
-                key+=(k+1)+")"+c[i][k]+" ";
+            for(var k = 0; k <10; k++){
+                    key+=(k+1)+")"+c[i][k]+"; ";
             }
             if(i<10){
-                tmp = "<a href= "+ c[i][9]+ "&quot>";
-                $('#myTable tbody').append('<tr><td><b>'+(i+1)+'</b></td><td>'+tmp+c[i][9]+'</a></td><td>'+key+'</td></tr>');
+                tmp = "<a href= "+ c[i][10]+ "&quot>";
+                $('#myTable tbody').append('<tr><td><b>'+(i+1)+'</b></td><td>'+tmp+c[i][10]+'</a></td><td>'+key+'</td></tr>');
                 tmp="";
             }
         }
@@ -35,12 +39,14 @@ insert = function (data){
         document.getElementById('controllo').style.display = 'block';
         document.getElementById('input').classList.add('error');
     }
+    console.log(c);
 };
 reload = function () {
     $('#myTable tbody tr').remove();
 };
 search = function(){
     //upload();
+    //send();
     $.ajax('http://jsonplaceholder.typicode.com/photos', {
         method: 'GET'
     }).then(function(data) {
@@ -81,3 +87,4 @@ $(function() {
         }
     });
 });
+
